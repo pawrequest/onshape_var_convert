@@ -1,4 +1,4 @@
-# onshape_var_convert – Onshape variable converter
+# onshape_var_convert – Onshape variable converter mostly by Sonnet 5.5
 
 Moves variables between **Part Studio variables**, **Variable Studio variables** and
 **Configuration (quantity) inputs**, in any direction. Variables are *moved*: written to the
@@ -18,14 +18,14 @@ Use workspace URLs (`/w/`), since versions are read-only.
 
 ```
 # Part Studio variables -> configuration inputs (same Part Studio)
-uv run onshape_var_convert convert <partstudio-url> --from partstudio --to config --names width,height
+uv run onshape_var_convert <partstudio-url> --from partstudio --to config --names width,height
 
 # Part Studio / config -> a Variable Studio (found/created by name, then referenced by the Part Studio)
-uv run onshape_var_convert convert <partstudio-url> --from config --to variablestudio --vs-name Variables
-uv run onshape_var_convert convert <partstudio-url> --from partstudio --to variablestudio --target-url <variablestudio-url>
+uv run onshape_var_convert <partstudio-url> --from config --to variablestudio --vs-name Variables
+uv run onshape_var_convert <partstudio-url> --from partstudio --to variablestudio --target-url <variablestudio-url>
 
 # Variable Studio -> Part Studio variables / configuration inputs (target Part Studio required)
-uv run onshape_var_convert convert <variablestudio-url> --from variablestudio --to partstudio --target-url <partstudio-url>
+uv run onshape_var_convert <variablestudio-url> --from variablestudio --to partstudio --target-url <partstudio-url>
 ```
 
 `--dry-run` previews; `--names a,b` selects a subset (default: all).
