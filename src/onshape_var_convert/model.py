@@ -6,13 +6,13 @@ import re
 from dataclasses import dataclass
 from enum import StrEnum
 
-QUANTITY_TYPES = ("LENGTH", "ANGLE", "NUMBER")
+QUANTITY_TYPES = ('LENGTH', 'ANGLE', 'NUMBER')
 
 
 class Kind(StrEnum):
-    PARTSTUDIO = "partstudio"
-    VARIABLESTUDIO = "variablestudio"
-    CONFIG = "config"
+    PARTSTUDIO = 'partstudio'
+    VARIABLESTUDIO = 'variablestudio'
+    CONFIG = 'config'
 
 
 @dataclass(frozen=True)
@@ -20,7 +20,7 @@ class Variable:
     name: str
     expression: str
     vtype: str
-    description: str = ""
+    description: str = ''
 
 
 @dataclass(frozen=True)
@@ -31,30 +31,30 @@ class Skipped:
 
 # Short unit suffix (as used in expressions) -> Onshape unit name (as used in config definitions)
 UNIT_NAMES = {
-    "mm": "millimeter",
-    "cm": "centimeter",
-    "m": "meter",
-    "in": "inch",
-    "ft": "foot",
-    "yd": "yard",
-    "deg": "degree",
-    "rad": "radian",
-    "": "",
+    'mm': 'millimeter',
+    'cm': 'centimeter',
+    'm': 'meter',
+    'in': 'inch',
+    'ft': 'foot',
+    'yd': 'yard',
+    'deg': 'degree',
+    'rad': 'radian',
+    '': '',
 }
 UNIT_SUFFIXES = {v: k for k, v in UNIT_NAMES.items()}
 _UNIT_TYPES = {
-    "millimeter": "LENGTH",
-    "centimeter": "LENGTH",
-    "meter": "LENGTH",
-    "inch": "LENGTH",
-    "foot": "LENGTH",
-    "yard": "LENGTH",
-    "degree": "ANGLE",
-    "radian": "ANGLE",
-    "": "NUMBER",
+    'millimeter': 'LENGTH',
+    'centimeter': 'LENGTH',
+    'meter': 'LENGTH',
+    'inch': 'LENGTH',
+    'foot': 'LENGTH',
+    'yard': 'LENGTH',
+    'degree': 'ANGLE',
+    'radian': 'ANGLE',
+    '': 'NUMBER',
 }
 
-_LITERAL = re.compile(r"^\s*(-?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?)\s*([A-Za-z]*)\s*$")
+_LITERAL = re.compile(r'^\s*(-?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?)\s*([A-Za-z]*)\s*$')
 
 
 def parse_literal(expression: str) -> tuple[float, str] | None:
@@ -75,6 +75,6 @@ def infer_type(expression: str) -> str | None:
 
 
 def format_literal(value: float, unit: str) -> str:
-    number = f"{value:.12g}"
+    number = f'{value:.12g}'
     suffix = UNIT_SUFFIXES.get(unit, unit)
-    return f"{number} {suffix}".strip()
+    return f'{number} {suffix}'.strip()
