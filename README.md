@@ -44,7 +44,7 @@ document first against a real account.
 
 ## Live tests
 `tests/live/` runs the converter against the Onshape document "test" and resets its six baseline
-variables (`src/onshape_var_convert/og_vars.py`) before and after every test. Skipped unless the key is set:
+variables (`tests/og_vars.py`) before and after every test. Skipped unless the key is set:
 
 ```
 $env:ONSHAPE_TEST_API_KEY = "access:secret"
