@@ -12,7 +12,8 @@ Create an API key at <https://dev-portal.onshape.com> and rename `.env.example` 
 
 ## installation
 
-Clone the repo If you will use it a lot recommend `uv tool install [repo-path]` to install as a uv tool, so can run from
+Clone the repo.  
+If you will use it a lot recommend `uv tool install [repo-path]` to install as a uv tool, so can run from
 terminal anywhere with `onshape_var_convert <ps url> --from --to` command.
 Otherwise you need to run from the repo root dir, or provide that path to uv, eg `uv run <path to repo> <ps url>...`
 
