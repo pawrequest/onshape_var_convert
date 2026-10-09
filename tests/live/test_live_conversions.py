@@ -1,9 +1,9 @@
 import pytest
 
-from scratch.backends import ConfigBackend, PartStudioBackend, VariableStudioBackend
-from scratch.cli import build_parser, run
-from scratch.convert import ConversionError
-from scratch.urlparse import parse_url
+from onshape_var_convert.backends import ConfigBackend, PartStudioBackend, VariableStudioBackend
+from onshape_var_convert.cli import build_parser, run
+from onshape_var_convert.convert import ConversionError
+from onshape_var_convert.urlparse import parse_url
 
 from . import helpers
 from .helpers import KIND_VARS, baseline

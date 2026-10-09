@@ -1,4 +1,4 @@
-"""Independent oracle for the live tests: raw REST calls, no use of scratch.backends."""
+"""Independent oracle for the live tests: raw REST calls, no use of onshape_var_convert.backends."""
 
 from __future__ import annotations
 
@@ -6,9 +6,9 @@ from dataclasses import dataclass
 
 import pytest
 
-from scratch.client import OnshapeClient
-from scratch.model import parse_literal
-from scratch.og_vars import OG_VARS
+from onshape_var_convert.client import OnshapeClient
+from onshape_var_convert.model import parse_literal
+from onshape_var_convert.og_vars import OG_VARS
 
 DID = "9323f6caa9681a8ed00b5323"
 WID = "b3c14a29fe0d314db7853c55"

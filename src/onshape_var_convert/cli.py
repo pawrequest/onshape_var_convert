@@ -15,7 +15,7 @@ KINDS = [k.value for k in Kind]
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(prog="scratch", description="Move Onshape variables between kinds.")
+    parser = argparse.ArgumentParser(prog="onshape_var_convert", description="Move Onshape variables between kinds.")
     sub = parser.add_subparsers(dest="command", required=True)
     c = sub.add_parser("convert", help="Move variables from one kind to another (source is deleted).")
     c.add_argument("url", help="Source element URL (Part Studio, or Variable Studio for --from variablestudio).")

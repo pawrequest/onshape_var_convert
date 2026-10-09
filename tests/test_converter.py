@@ -1,11 +1,11 @@
 import httpx
 import pytest
 
-from scratch.backends import ConfigBackend, PartStudioBackend, VariableStudioBackend
-from scratch.client import OnshapeClient
-from scratch.convert import ConversionError, convert
-from scratch.model import Kind, Skipped, Variable, format_literal, infer_type, parse_literal
-from scratch.urlparse import parse_url
+from onshape_var_convert.backends import ConfigBackend, PartStudioBackend, VariableStudioBackend
+from onshape_var_convert.client import OnshapeClient
+from onshape_var_convert.convert import ConversionError, convert
+from onshape_var_convert.model import Kind, Skipped, Variable, format_literal, infer_type, parse_literal
+from onshape_var_convert.urlparse import parse_url
 
 D, W, E, E2 = "a" * 24, "b" * 24, "c" * 24, "d" * 24
 URL = f"https://cad.onshape.com/documents/{D}/w/{W}/e/{E}"

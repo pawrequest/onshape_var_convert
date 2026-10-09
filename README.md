@@ -1,4 +1,4 @@
-# scratch – Onshape variable converter
+# onshape_var_convert – Onshape variable converter
 
 Moves variables between **Part Studio variables**, **Variable Studio variables** and
 **Configuration (quantity) inputs**, in any direction. Variables are *moved*: written to the
@@ -18,14 +18,14 @@ Use workspace URLs (`/w/`), since versions are read-only.
 
 ```
 # Part Studio variables -> configuration inputs (same Part Studio)
-uv run scratch convert <partstudio-url> --from partstudio --to config --names width,height
+uv run onshape_var_convert convert <partstudio-url> --from partstudio --to config --names width,height
 
 # Part Studio / config -> a Variable Studio (found/created by name, then referenced by the Part Studio)
-uv run scratch convert <partstudio-url> --from config --to variablestudio --vs-name Variables
-uv run scratch convert <partstudio-url> --from partstudio --to variablestudio --target-url <variablestudio-url>
+uv run onshape_var_convert convert <partstudio-url> --from config --to variablestudio --vs-name Variables
+uv run onshape_var_convert convert <partstudio-url> --from partstudio --to variablestudio --target-url <variablestudio-url>
 
 # Variable Studio -> Part Studio variables / configuration inputs (target Part Studio required)
-uv run scratch convert <variablestudio-url> --from variablestudio --to partstudio --target-url <partstudio-url>
+uv run onshape_var_convert convert <variablestudio-url> --from variablestudio --to partstudio --target-url <partstudio-url>
 ```
 
 `--dry-run` previews; `--names a,b` selects a subset (default: all).
@@ -44,7 +44,7 @@ document first against a real account.
 
 ## Live tests
 `tests/live/` runs the converter against the Onshape document "test" and resets its six baseline
-variables (`src/scratch/og_vars.py`) before and after every test. Skipped unless the key is set:
+variables (`src/onshape_var_convert/og_vars.py`) before and after every test. Skipped unless the key is set:
 
 ```
 $env:ONSHAPE_TEST_API_KEY = "access:secret"
