@@ -16,24 +16,32 @@ KINDS = [k.value for k in Kind]
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="onshape_var_convert", description="Move Onshape variables between kinds.")
-    sub = parser.add_subparsers(dest="command", required=True)
-    c = sub.add_parser("convert", help="Move variables from one kind to another (source is deleted).")
-    c.add_argument("url", help="Source element URL (Part Studio, or Variable Studio for --from variablestudio).")
-    c.add_argument("--from", dest="src", choices=KINDS, required=True)
-    c.add_argument("--to", dest="dst", choices=KINDS, required=True)
-    c.add_argument("--names", help="Comma separated variable names (default: all).")
-    c.add_argument("--all", action="store_true", help="Convert every variable (the default).")
-    c.add_argument(
+    # sub = parser.add_subparsers(dest="command", required=True)
+    # c = sub.add_parser("convert", help="Move variables from one kind to another (source is deleted).")
+    parser.add_argument("url", help="Source element URL (Part Studio, or Variable Studio for --from variablestudio).")
+    parser.add_argument("--from", dest="src", choices=KINDS, required=True)
+    parser.add_argument("--to", dest="dst", choices=KINDS, required=True)
+    parser.add_argument("--names", help="Comma separated variable names (default: all).")
+    parser.add_argument("--all", action="store_true", help="Convert every variable (the default).")
+    parser.add_argument(
         "--target-url",
         help="Destination element URL: the Part Studio when converting from a Variable Studio, "
-        "or an existing Variable Studio when converting to one.",
+             "or an existing Variable Studio when converting to one.",
     )
-    c.add_argument("--vs-name", default="Variables", help="Variable Studio to find/create when converting to one.")
-    c.add_argument("--dry-run", action="store_true", help="Show what would move without changing anything.")
+    parser.add_argument("--vs-name", default="Variables", help="Variable Studio to find/create when converting to one.")
+    parser.add_argument("--dry-run", action="store_true", help="Show what would move without changing anything.")
     return parser
 
 
-def _backend(client: OnshapeClient, kind: str, loc: Location, *, vs_eid=None, vs_name="Variables", link_to=None) -> Backend:
+def _backend(
+        client: OnshapeClient,
+        kind: str,
+        loc: Location,
+        *,
+        vs_eid=None,
+        vs_name="Variables",
+        link_to=None
+) -> Backend:
     if kind == Kind.PARTSTUDIO:
         return PartStudioBackend(client, loc, loc.require_element())
     if kind == Kind.CONFIG:
