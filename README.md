@@ -8,19 +8,17 @@ Mostly by Sonnet 5.5
 
 ## Setup
 
+Clone the repo. 
 Create an API key at <https://dev-portal.onshape.com> and rename `.env.example` as '.env' before populating the keys.
 
-## installation
-
-Clone the repo.  
 If you will use it a lot recommend `uv tool install [repo-path]` to install as a uv tool, so can run from
-terminal anywhere with `onshape_var_convert <ps url> --from --to` command.
-Otherwise you need to run from the repo root dir, or provide that path to uv, eg `uv run <path to repo> <ps url>...`
+terminal anywhere with `onshape_var_convert <command>`. 
+Otherwise you need to run from the repo root dir, or provide that path to uv, eg `uv run <path to repo> <command>`
 
 ## Usage
 
 ```
-# Convert Part Studio variables -> configuration inputs (same Part Studio)
+# Convert named Part Studio variables -> configuration inputs (same Part Studio)
 uv run onshape_var_convert <partstudio-url> --from partstudio --to config --names width,height
 
 # Part Studio / config -> a Variable Studio (found/created by name, then referenced by the Part Studio)
