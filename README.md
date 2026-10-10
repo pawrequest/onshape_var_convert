@@ -8,7 +8,7 @@ Mostly by Sonnet 5.5
 
 ## Setup
 
-Create an API key at <https://dev-portal.onshape.com> and rename `.env.example` as '.env'
+Create an API key at <https://dev-portal.onshape.com> and rename `.env.example` as '.env' before populating the keys.
 
 ## installation
 
